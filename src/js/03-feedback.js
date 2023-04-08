@@ -7,7 +7,7 @@ const userData = {};
 const formFill = () => {
   const userInfo = JSON.parse(localStorage.getItem(key));
 
-  if (userInfo === null) {
+  if (!userInfo) {
     return;
   }
 
@@ -35,8 +35,6 @@ const formSubmit = evt => {
   console.log(userData);
   form.reset();
   localStorage.removeItem(key);
-  userData.email = '';
-  userData.message = '';
 };
 
 form.addEventListener('input', throttle(formInput, 500));
